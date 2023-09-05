@@ -1,18 +1,24 @@
-class Solution {
+//we create a max heap of pair<int,int> where first element of pair is the candidate and second element is the index of candidate
+class Solution
+{
 public:
-    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    vector<int> maxSlidingWindow(vector<int> &nums, int k)
+    {
         vector<int> ans;
-        priority_queue<pair<int,int>> pq;
-        int i=0;
-        while(i<k){
-            pq.push({nums[i],i});
+        priority_queue<pair<int, int>> pq;
+        int i = 0;
+        while (i < k)
+        {
+            pq.push({nums[i], i});
             i++;
         }
         ans.push_back(pq.top().first);
-        for(i=k;i<nums.size();i++){
-            pq.push({nums[i],i});
-               while(pq.top().second<=i-k){
-                   pq.pop();
+        for (i = k; i < nums.size(); i++)
+        {
+            pq.push({nums[i], i});
+            while (pq.top().second <= i - k)
+            {
+                pq.pop();
             }
             ans.push_back(pq.top().first);
         }

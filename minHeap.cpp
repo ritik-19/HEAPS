@@ -65,14 +65,7 @@ public:
 	}
 };
 int main(){
-    int n;
-    std::cin>>n;
-    std::vector<int> array;
-    for(int i=0;i<n;i++){
-        int x;
-        std::cin>>x;
-        array.push_back(x);
-    }
+  std::vector<int> array={1,2,3,4,5,6};
     minHeap heap(array);
     heap.print();
     return 0;
